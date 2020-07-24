@@ -31,6 +31,14 @@ public class Logic {
     }
 
     private boolean isFree(Cell[] steps) {
+        for (Cell cell : steps) {
+            try {
+                int i = this.findBy(cell);
+            } catch (FigureNotFoundException e) {
+                continue;
+            }
+            return false;
+        }
         return true;
     }
 
