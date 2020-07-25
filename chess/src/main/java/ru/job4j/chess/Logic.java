@@ -32,12 +32,11 @@ public class Logic {
 
     private boolean isFree(Cell[] steps) {
         for (Cell cell : steps) {
-            try {
-                int i = this.findBy(cell);
-            } catch (FigureNotFoundException e) {
-                continue;
+            for (int index = 0; index != figures.length; index++) {
+                if (figures[index] != null && figures[index].position().equals(cell)) {
+                    return false;
+                }
             }
-            return false;
         }
         return true;
     }
